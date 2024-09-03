@@ -16,7 +16,7 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false){
-            VStack{
+            VStack(alignment : .leading){
                 
                 Text("Welcome").font(.largeTitle).padding()
                 
@@ -54,6 +54,24 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding()
+                
+                HStack{
+                    Text("Fitness Activity").font(.title2)
+                    Spacer()
+                    
+                    Button{
+                        print("show more")
+                    }label: {
+                        Text("Show more").padding(.horizontal,10).padding(.vertical,5).foregroundStyle(.white).background(.blue)
+                            .cornerRadius(24).font(.callout)
+                    }
+                }.padding(.horizontal)
+                LazyVGrid(columns: Array(repeating: GridItem(spacing : 20), count: 2)){
+                    ActivityCard(activity: .mockActivities[0])
+                    ActivityCard(activity: .mockActivities[1])
+                    ActivityCard(activity: .mockActivities[3])
+                    ActivityCard(activity: .mockActivities[2])
+                }.padding(.horizontal)
             }
         }
     }
