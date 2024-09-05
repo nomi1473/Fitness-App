@@ -9,9 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var calories : Int = 123
-    @State var active : Int = 52
-    @State var stand : Int = 8
+    @StateObject var viewmodel = HomeViewmodel()
     
     
     var body: some View {
@@ -27,29 +25,29 @@ struct HomeView: View {
                         VStack{
                             VStack(alignment : .leading,spacing: 8 ){
                                 Text("Calories").font(.callout).bold().foregroundColor(.red)
-                                Text("123 kcal").bold()
+                                Text("\(viewmodel.calories)").bold()
                                     
                             }
                             .padding(.bottom)
                             
                             VStack(alignment : .leading,spacing: 8 ){
                                 Text("Active").font(.callout).bold().foregroundColor(.green)
-                                Text("52 mins").bold()
+                                Text("\(viewmodel.active)").bold()
                             }
                             .padding(.bottom)
 
                             VStack(alignment : .leading,spacing: 8 ){
                                 Text("Stand").font(.callout).bold().foregroundColor(.blue)
-                                Text("8 hours").bold()
+                                Text("\(viewmodel.stand)").bold()
                             }
                         }
                         Spacer()
                         
                         ZStack{
-                            ProgressCircleView(color: .red, goal: 600, progess: $calories)
-                            ProgressCircleView(color: .green, goal: 60, progess: $active)
+                            ProgressCircleView(color: .red, goal: 600, progess: $viewmodel.calories)
+                            ProgressCircleView(color: .green, goal: 60, progess: $viewmodel.active)
                                 .padding(20)
-                            ProgressCircleView(color: .blue, goal: 12, progess: $stand)
+                            ProgressCircleView(color: .blue, goal: 12, progess: $viewmodel.stand)
                                 .padding(40)
                         }.padding(.horizontal)
                         Spacer()
@@ -95,7 +93,7 @@ struct HomeView: View {
                             WorkoutCard(workout: item)
                         }
                     }.padding(.horizontal)
-                }
+                }.padding(.bottom)
             }
         }
     }
