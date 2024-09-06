@@ -32,7 +32,7 @@ struct HomeView: View {
                             
                             VStack(alignment : .leading,spacing: 8 ){
                                 Text("Active").font(.callout).bold().foregroundColor(.green)
-                                Text("\(viewmodel.active)").bold()
+                                Text("\(viewmodel.exersice)").bold()
                             }
                             .padding(.bottom)
 
@@ -44,8 +44,8 @@ struct HomeView: View {
                         Spacer()
                         
                         ZStack{
-                            ProgressCircleView(color: .red, goal: 600, progess: $viewmodel.calories)
-                            ProgressCircleView(color: .green, goal: 60, progess: $viewmodel.active)
+                            ProgressCircleView(color: .red, goal: 600, progess: ($viewmodel.calories))
+                            ProgressCircleView(color: .green, goal: 60, progess: ($viewmodel.exersice))
                                 .padding(20)
                             ProgressCircleView(color: .blue, goal: 12, progess: $viewmodel.stand)
                                 .padding(40)

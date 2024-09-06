@@ -21,7 +21,7 @@ struct ActivityCard: View {
                 HStack(alignment : .top){
                     
                     VStack(alignment : .leading){
-                        Text(activity.title).font(.callout).fontWeight(.semibold)
+                        Text(activity.title).font(.callout).fontWeight(.semibold).lineLimit(1).minimumScaleFactor(0.5)
                         Text(activity.subtitle).font(.caption2).foregroundStyle(Color(uiColor: .systemGray2))
                     }
                     Spacer()
