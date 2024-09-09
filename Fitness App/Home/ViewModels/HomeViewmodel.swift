@@ -16,6 +16,9 @@ class HomeViewmodel : ObservableObject{
     @Published var exersice : Int = 52
     @Published var stand : Int = 8
     
+    @Published var activities = [Activity]()
+    @Published var workouts = [Workout]()
+    
     init(){
         Task{
             do{
@@ -23,6 +26,9 @@ class HomeViewmodel : ObservableObject{
                 fetchTodayCalories()
                 fetchTodayExcersie()
                 fetchTodayStand()
+                fetchTodaysStep()
+                fetchCurrentWeekActivities()
+                fetchRecentWorkouts()
               
               
             }catch{
@@ -38,7 +44,10 @@ class HomeViewmodel : ObservableObject{
             case .success(let calories) :
                 DispatchQueue.main.async {
                     self.calories = Int(calories)
-                }            case .failure(let failure):
+                    let activity = Activity( title: "Calories Burn", subtitle: "Today", image: "flame", tintColor: .red, amount: "\(Int(calories))")
+                    self.activities.append(activity)
+                }
+            case .failure(let failure):
                 print(failure.localizedDescription)
             }
         }
@@ -62,6 +71,49 @@ class HomeViewmodel : ObservableObject{
             case .success(let hours) :
                 DispatchQueue.main.async {
                     self.stand = Int(hours)
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
+    
+//    Mark : Fitness Activity
+    
+    func fetchTodaysStep(){
+        
+        healthManager.fetchTodaySteps { result in
+            switch result {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    self.activities.append(success)
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchCurrentWeekActivities(){
+        healthManager.fetchCurrentWeekWorkoutStats { result in
+     
+            switch result {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    self.activities.append(contentsOf: success)
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchRecentWorkouts(){
+        healthManager.fetchWorkoutsForMonth(month: Date()) { results in
+            switch results {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    self.workouts = success
                 }
             case .failure(let failure):
                 print(failure.localizedDescription)

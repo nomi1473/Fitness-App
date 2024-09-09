@@ -66,10 +66,10 @@ struct HomeView: View {
                         }
                     }.padding(.horizontal)
                     LazyVGrid(columns: Array(repeating: GridItem(spacing : 20), count: 2)){
-                        ActivityCard(activity: .mockActivities[0])
-                        ActivityCard(activity: .mockActivities[1])
-                        ActivityCard(activity: .mockActivities[3])
-                        ActivityCard(activity: .mockActivities[2])
+                        ForEach(viewmodel.activities, id : \.title){ activtiy in
+                            ActivityCard(activity: activtiy)
+                            
+                        }
                     }.padding(.horizontal)
                     
                     HStack{
@@ -89,7 +89,7 @@ struct HomeView: View {
                     }.padding()
                     
                     LazyVStack{
-                        ForEach(Workout.list,id: \.id){ item in
+                        ForEach(viewmodel.workouts,id: \.title){ item in
                             WorkoutCard(workout: item)
                         }
                     }.padding(.horizontal)
