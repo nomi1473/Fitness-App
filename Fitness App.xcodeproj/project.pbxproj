@@ -13,6 +13,7 @@
 		84340D872C89EF2200B3926D /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84340D862C89EF2200B3926D /* Workout.swift */; };
 		84340D8C2C8AF44300B3926D /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84340D8B2C8AF44300B3926D /* HealthManager.swift */; };
 		84340D8F2C8EF45F00B3926D /* HKWorkoutActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84340D8E2C8EF45F00B3926D /* HKWorkoutActivityType.swift */; };
+		84340D952C8F1A3500B3926D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84340D942C8F1A3500B3926D /* ChartView.swift */; };
 		84D1B7022C85B2EF00C32BD3 /* Fitness_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B7012C85B2EF00C32BD3 /* Fitness_AppApp.swift */; };
 		84D1B7042C85B2EF00C32BD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B7032C85B2EF00C32BD3 /* ContentView.swift */; };
 		84D1B7062C85B2F400C32BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D1B7052C85B2F400C32BD3 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		84340D8A2C8AF42E00B3926D /* Fitness App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fitness App.entitlements"; sourceTree = "<group>"; };
 		84340D8B2C8AF44300B3926D /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		84340D8E2C8EF45F00B3926D /* HKWorkoutActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKWorkoutActivityType.swift; sourceTree = "<group>"; };
+		84340D942C8F1A3500B3926D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		84D1B6FE2C85B2EF00C32BD3 /* Fitness App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D1B7012C85B2EF00C32BD3 /* Fitness_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fitness_AppApp.swift; sourceTree = "<group>"; };
 		84D1B7032C85B2EF00C32BD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,38 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		84340D902C8F19D700B3926D /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				84340D932C8F19EC00B3926D /* Model */,
+				84340D922C8F19E300B3926D /* ViewModel */,
+				84340D912C8F19DE00B3926D /* Views */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		84340D912C8F19DE00B3926D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84340D942C8F1A3500B3926D /* ChartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		84340D922C8F19E300B3926D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84340D932C8F19EC00B3926D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84D1B6F52C85B2EF00C32BD3 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +152,7 @@
 		84D1B7002C85B2EF00C32BD3 /* Fitness App */ = {
 			isa = PBXGroup;
 			children = (
+				84340D902C8F19D700B3926D /* Charts */,
 				84340D8A2C8AF42E00B3926D /* Fitness App.entitlements */,
 				84340D892C8AF0CE00B3926D /* Managers */,
 				84340D882C8AF0C500B3926D /* Utils */,
@@ -223,6 +258,7 @@
 				84340D852C89EE9D00B3926D /* Activity.swift in Sources */,
 				84EF949A2C85F7E9004A7013 /* FitnessTabView.swift in Sources */,
 				84340D802C89ED2900B3926D /* HomeViewmodel.swift in Sources */,
+				84340D952C8F1A3500B3926D /* ChartView.swift in Sources */,
 				84340D7E2C89E1B400B3926D /* WorkoutCard.swift in Sources */,
 				84EF94A02C86FD12004A7013 /* ProgressCircleView.swift in Sources */,
 				84EF949C2C8601BB004A7013 /* HomeView.swift in Sources */,
